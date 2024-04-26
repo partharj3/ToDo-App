@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        *{
+            margin:0px;
+            font-family: 'Poppins',sans-serif;
+            box-sizing: border-box;
+        }
+        
+        .outer{
+            margin: auto;
+            background-color: white;
+            box-shadow: 0.5px 1.5px 5px grey;
+            width: 500px;
+            margin-top: 10%;
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        body{
+            background: linear-gradient(333deg, #000428 , #004e92);
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+        }
+
+        .container{
+            display: flex;
+            flex-direction: column;            
+            padding: 20px;
+        }
+
+        .inp{
+            height: 40px;
+        }
+
+        #placeholder{
+            font-size: 12px;
+            position: relative;
+            top: 52px;
+            left: 40px;
+            display: inline-block;
+            z-index: 999;
+            /* border: 2px solid red; */
+        }
+
+        input:focus{
+            /* border: 5px solid #004e92;
+            background-color: aliceblue; */
+         transition :"all 0.5s";
+        }
+
+        .inp>input{
+            height: 40px;
+            width: 75%;
+            /* margin: 10px; */
+            border-radius: 30px;
+            border: 1px solid #808080;
+            color: black;
+            outline: none;
+            padding: 20px;
+            font-size: 16px;
+            display: inline;
+            z-index: 1111;
+            transition :"all 0.5s";
+        }
+        .inp>button{
+            position: relative;
+            /* top: -10px; */
+            right: 60px;
+            font-size: 16px;
+            background-color: #004e92;
+            border-radius: 40px;
+            color: aliceblue;
+            border: none;
+            padding: 6px 10px;
+            height: 40px;
+        }
+
+        #add-list>li{
+            margin-top: 10px;
+            color: #000428;
+            list-style: none;
+            user-select: none;
+            cursor: pointer;
+            position: relative;
+            font-size: 18px
+        }
+
+        #add-list>li span{
+            border-radius: 50%;
+            cursor: pointer;
+            position: absolute;
+            padding-left: 7px;
+            right: 6px;
+            /* top: -1px; */
+            height: 24px;
+            width: 24px;
+        }
+
+        #add-list>li span:hover{
+            background-color: rgba(119, 122, 121, 0.479);
+        }
+
+        #add-list>li.checked{
+            text-decoration: line-through;
+            color: #5394cc;
+        }
+
+        #add-list>li.checked::before{
+            background-image: url(./icons8-checked-30.png)
+        }
+
+        li::before{
+            background-image: url(./icons8-circle-30.png);
+            background-size: cover;
+            content: '';
+            background-position: center;
+            position: absolute;
+            left: -20px;
+            top: 7px;
+            height: 15px;
+            width: 15px;    
+        }  
+
+    </style>
+</head>
+<body>
+    <div class="outer" onclick="checkClick(event)">
+        <H3>To-Do App</H3>
+        <span id="placeholder">add your task</span>
+        <div class="container">
+            <div class="inp">
+                <input type="text" id="create" onclick="checkClick(event)"><button class="add">add task</button>
+            </div>
+            <ul id="add-list" >
+            </ul>
+        </div>
+    </div>
+    <script src="ToDoApp.js"></script>
+</body>
+</html>
